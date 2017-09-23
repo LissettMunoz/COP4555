@@ -1,8 +1,0 @@
-C:\Users\jleyva\projects\New folder\MyFirstF\MyFirstF\bin\Debug\MyFirstF.exe.config
-C:\Users\jleyva\projects\New folder\MyFirstF\MyFirstF\bin\Debug\MyFirstF.XML
-C:\Users\jleyva\projects\New folder\MyFirstF\MyFirstF\bin\Debug\MyFirstF.exe
-C:\Users\jleyva\projects\New folder\MyFirstF\MyFirstF\bin\Debug\MyFirstF.pdb
-C:\Users\jleyva\projects\New folder\MyFirstF\MyFirstF\bin\Debug\FSharp.Core.dll
-C:\Users\jleyva\projects\New folder\MyFirstF\MyFirstF\bin\Debug\FSharp.Core.xml
-C:\Users\jleyva\projects\New folder\MyFirstF\MyFirstF\obj\Debug\MyFirstF.exe
-C:\Users\jleyva\projects\New folder\MyFirstF\MyFirstF\obj\Debug\MyFirstF.pdb
