@@ -25,8 +25,7 @@ let revlists l = List.map (fun x -> List.rev x) l
 
 //3. Write an F# function interleave(xs,ys) that interleaves two lists:
 
-
-let interleave (a,b) = 
+let interleave_old (a,b) = 
     let rec interleaveLists  = function
     | ([],[],list) -> list
     | ([],_,_)  -> failwith "Lists need to be equals"
@@ -34,6 +33,15 @@ let interleave (a,b) =
     | (a::aa,b::bb,list)  -> interleaveLists (aa,bb,a::b::list)
     
     interleaveLists(List.rev a,List.rev b,[])
+///interleave(xs,ys) implementation after taking a look at Rodolfo's shuffle impl...
+// > interleave ([1;2;3],[4;5;6]);;
+//  val it : int list = [1; 4; 2; 5; 3; 6]
+let rec interleave = function 
+    | ([],[]) -> []
+    | (a::aa,[])  -> a::interleave(aa,[])
+    | ([],b::bb)  -> b::interleave([],bb)
+    | (a::aa,b::bb)  -> a::b::interleave(aa,bb)
+
 
 
 //4. Write an F# function cut xs that cuts a list into two equal parts:
@@ -54,8 +62,8 @@ let cut list=
 //I manually tested question 6 for sizes 4, 6, 8, and it seems to be working fine. 
 //If any of you fancy testing with lists of size 10 and 12 for safety, be my guest. 
 //I will be out of town this weekend, so if you guys have any question for me I might be able to address it on Sunday.
-
-
+//shuffle [1;2;3;4;5;6;7;8];;
+//val it : int list = [1; 5; 2; 6; 3; 7; 4; 8]
 let shuffle (us) =
     let split (xs : 'a list) =  (xs.[0..(List.length xs)/2-1], xs.[(List.length xs)/2..(List.length xs - 1)])
     let rec inner_shuffle = function
