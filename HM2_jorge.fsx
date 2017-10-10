@@ -1,4 +1,15 @@
 (*
+1. 
+*)
+let rec cartesian = function
+| ([],ys) -> []
+| (x::xs, ys) -> List.map (fun y -> (x,y)) ys @ cartesian (xs, ys) ;;
+
+
+
+
+
+(*
 2-----An F# list can be thought of as representing a set, where the order of the elements in the list is irrelevant.
 Write an F# function powerset such that powerset set returns the set of all subsets of set. For example,
   > powerset [1;2;3];;
@@ -17,7 +28,31 @@ let rec powerset =
   | y::ys -> appmap (fun x -> [x; y::x]) (powerset ys)
 
 
+(*
+4. 
+Rule 1: There is no circumstance in which the base case fails to return the 
+correct result for the input. When the list is empty an empty list is returned
+and when there is only one item in the list that one item is returned. 
 
+Rule 2: There is a circumstance in which the code for a non-base case can fail
+to transform correct results returned by the recursive calls. It does not sort
+the list correctly when the list contains more than two item. It sorts them in 
+order by checking if the first two are in order, then the second and third item
+and so on. However, this doesn't work since it doesn't check if the previous
+items from what it was switched with are in order. 
+
+ex. [2;5;1]
+It will check if 2 is smaller or equal to 5, which is correct, so it will remain in place.
+[2;5;1]
+Now it will check if 5 is smaller or equal to 1 which is incorrect and will then switch
+the items. 
+[2;1;5]
+It is now done, the list is not in order since 1 is smaller than 2.  
+
+Rule 3: There is no circumstance in which the definition can make a recursive call on an
+input that's not smaller than the original input. xs is smaller than x1::x2::xs. 
+ 
+*)
 
 
 (*
